@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/physics/static/css/main.3efa7240.chunk.css",
+    "main.js": "/physics/static/js/main.71d307df.chunk.js",
+    "main.js.map": "/physics/static/js/main.71d307df.chunk.js.map",
+    "runtime-main.js": "/physics/static/js/runtime-main.04de2196.js",
+    "runtime-main.js.map": "/physics/static/js/runtime-main.04de2196.js.map",
+    "static/js/2.307df87c.chunk.js": "/physics/static/js/2.307df87c.chunk.js",
+    "static/js/2.307df87c.chunk.js.map": "/physics/static/js/2.307df87c.chunk.js.map",
+    "index.html": "/physics/index.html",
+    "precache-manifest.6841c444d52a7262f2b8b6276b0ba30d.js": "/physics/precache-manifest.6841c444d52a7262f2b8b6276b0ba30d.js",
+    "service-worker.js": "/physics/service-worker.js",
+    "static/css/main.3efa7240.chunk.css.map": "/physics/static/css/main.3efa7240.chunk.css.map",
+    "static/js/2.307df87c.chunk.js.LICENSE.txt": "/physics/static/js/2.307df87c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.04de2196.js",
+    "static/js/2.307df87c.chunk.js",
+    "static/css/main.3efa7240.chunk.css",
+    "static/js/main.71d307df.chunk.js"
+  ]
+}
