@@ -24,7 +24,11 @@ const Workbench = () => {
 
     return (
         <div className='container'>
-            <div className='toolbar' style={{ height: `${toolbarHeight}rem`, padding: `${toolbarPadding}px` }}>
+            <div className='toolbar' style={{
+                height: `${toolbarHeight}rem`,
+                padding: `${toolbarPadding}px`,
+                overflow: 'auto',
+            }}>
                 <div className='item'>
                     <label htmlFor='source'><span>Source</span></label>
                     <select id='source' defaultValue={active} onChange={e => setActive(elements[e.target.value])}>
