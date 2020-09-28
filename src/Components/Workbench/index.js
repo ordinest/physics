@@ -52,7 +52,7 @@ const Workbench = () => {
                     />
                 </div>
                 <div className='item'>
-                    <label htmlFor='spacing'><span>{`Slit Spacing (${spacing} nm)`}</span></label>
+                    <label htmlFor='spacing'><span>{`Grating Period (${spacing} nm)`}</span></label>
                     <input
                         type='range'
                         id='spacing'
