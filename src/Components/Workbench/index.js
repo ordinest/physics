@@ -1,112 +1,99 @@
 import React, { useState } from 'react'
 import './workbench.scss'
-import { wavelengthToColor } from 'Utilities/spectralUtilities'
 import elements from 'Data/elements'
+import Screen from './Screen'
+import Source from './Source'
+import Grate from './Grate'
+import Rays from './Rays'
 
-function height(d, lambda, a) {
-    return d * lambda / Math.sqrt(
-        a*a - lambda*lambda
-    )
-}
-
-const Source = props => (
-    <div
-        className='source'
-        style={{
-            background: `${props.color}`,
-            borderColor: `${props.border}`,
-            boxShadow: `${props.glow} 0 0 8px 8px`
-        }}
-    />
-)
-const Grate = () => (
-    <div className='grate' />
-)
-const Rays = props => {
-    return (
-        <div className='rays'>
-            <svg className='source-rays'>
-                <line x1="0" y1="50%" x2="100%" y2="50%" />
-            </svg>
-            <svg className='diffracted-rays'>
-                <line x1="0" y1="50%" x2="100%" y2="50%" style={{ stroke: 'white' }} />
-                {props.lines.map(dline => (
-                    <React.Fragment key={dline}>
-                        <line
-                            x1="0" y1="50%" x2="100%"
-                            y2={`${(300 - height(608, dline, 1660)) / 600 * 100}%`}
-                            style={{ stroke: wavelengthToColor(dline)[0] }}
-                        />
-                        <line
-                            x1="0" y1="50%" x2="100%"
-                            y2={`${100 - (300 - height(608, dline, 1660)) / 600 * 100}%`}
-                            style={{ stroke: wavelengthToColor(dline)[0] }}
-                            />
-                    </React.Fragment>
-                ))}
-            </svg>
-        </div>
-    )
-}
-const Screen = props => {
-    const lines = props.lines.map(line => ({
-        wavelength: line,
-        height: height(608, line, 1660),
-        color: wavelengthToColor(line)[0],
-    }))
-    console.log(lines)
-    return (
-        <div className='screen'>
-            <div
-                className='spectralLine'
-                style={{
-                    background: props.sourceColor
-                }}
-            />
-            {lines.map((line,i) => (
-                <React.Fragment key={i}>
-                    <div
-                        className='spectralLine'
-                        style={{
-                            transform: `translateY(-${line.height}px)`,
-                            background: line.color,
-                        }}
-                    />
-                    <div
-                        className='spectralLine'
-                        style={{
-                            transform: `translateY(${line.height}px)`,
-                            background: line.color,
-                        }}
-                    />
-                </React.Fragment>
-            ))}
-        </div>
-    )
-}
 
 const Workbench = () => {
     const [active, setActive] = useState(elements.hydrogen)
+    const [spacing, setSpacing] = useState(1660)
+    const [screenDistance, setScreenDistance] = useState(400)
+
+    const toolbarPadding = 2    // 2px
+    const toolbarHeight = 2.5   // 2.5rem
+    const screenHeight = 600    // In pixels
+    const grateMin = 200        // In millimeters
+    const grateMax = 450        // In millimeters
+    const spacingMin = 1220     // In nanometers
+    const spacingMax = 1820     // In nanometers
+
+    const grateX = 60 - 20 * (screenDistance - grateMin) / (grateMax-grateMin)
+
     return (
         <div className='container'>
-            <div className='toolbar'>
-                <select defaultValue={active} onChange={e => setActive(elements[e.target.value])}>
-                    {Object.keys(elements).map(element => (
-                        <option value={element} key={element}>
-                            {element.charAt(0).toUpperCase() + element.slice(1)}
-                        </option>
-                    ))}
-                </select>
+            <div className='toolbar' style={{ height: `${toolbarHeight}rem`, padding: `${toolbarPadding}px` }}>
+                <div className='item'>
+                    <label htmlFor='source'><span>Source</span></label>
+                    <select id='source' defaultValue={active} onChange={e => setActive(elements[e.target.value])}>
+                        {Object.keys(elements).map(element => (
+                            <option value={element} key={element}>
+                                {elements[element].name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className='item'>
+                    <label htmlFor='distance'>
+                        <span>
+                            {`Screen Distance (${screenDistance} mm)`}
+                        </span>
+                    </label>
+                    <input
+                        type='range'
+                        id='distance'
+                        min={grateMin}
+                        max={grateMax}
+                        step="1"
+                        defaultValue={screenDistance}
+                        onChange={e => setScreenDistance(e.target.value)}
+                    />
+                </div>
+                <div className='item'>
+                    <label htmlFor='spacing'><span>{`Slit Spacing (${spacing} nm)`}</span></label>
+                    <input
+                        type='range'
+                        id='spacing'
+                        min={spacingMin}
+                        max={spacingMax}
+                        step="1"
+                        defaultValue={spacing}
+                        onChange={e => setSpacing(e.target.value)}
+                    />
+                </div>
             </div>
-            <div className='workbench'>
-                <Rays lines={active.lines} />
-                <Source
-                    color={active.sourceColor}
-                    border={active.sourceBorder}
-                    glow={active.sourceGlow}
-                />
-                <Grate />
-                <Screen sourceColor={active.sourceColor} lines={active.lines} />
+            <div className='workbench' style={{ minHeight: screenHeight }}>
+                <div className='scaling'>
+                    <Source
+                        coordinates={{ x: 10, y: 50 }}
+                        color={active.sourceColor}
+                        border={active.sourceBorder}
+                        glow={active.sourceGlow}
+                    />
+                    <Grate
+                        coordinates={{ x: grateX, y: 50 }}
+                    />
+                    <Screen
+                        coordinates={{ x: 82, y: 50 }}
+                        height={`${screenHeight}px`}
+                        sourceColor={active.sourceColor}
+                        screenDistance={screenDistance}
+                        gratingSpacing={spacing}
+                        lines={active.lines}
+                    />
+                    <Rays
+                        sourceCoordinates={{ x: 10, y: 50 }}
+                        screenCoordinates={{ x: 82, y: 50 }}
+                        screenHeight={screenHeight}
+                        screenDistance={screenDistance}
+                        diffractionSpacing={spacing}
+                        coordinates={{ x: 50, y: 50 }}
+                        gratePosition={grateX}
+                        lines={active.lines}
+                    />
+                </div>
             </div>
         </div>
     )

@@ -57,4 +57,15 @@ export function wavelengthToColor(wavelength) {
   
     return colorSpace;
   
-  }
+}
+  
+/**
+ * Calculate the height of spectral lines from incoming ray
+ * as they would appear on a screen.
+ * @param {Number} d Distance from diffraction grating to screen.
+ * @param {Number} lambda Wavelength.
+ * @param {Number} a Distance between diffraction grating slits.
+ */
+export function diffractionHeight(d, lambda, a) {
+    return d * lambda / Math.sqrt(a * a - lambda * lambda)
+}

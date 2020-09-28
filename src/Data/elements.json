@@ -1,17 +1,20 @@
 {
     "hydrogen": {
+        "name": "Mystery Element 1",
         "sourceColor": "rgb(244,241,243)",
         "sourceBorder": "rgb(255,53,137)",
         "sourceGlow": "rgb(255,0,68)",
-        "lines": [656, 486, 434, 410]
+        "lines": [656, 486, 434]
     },
     "helium": {
+        "name": "Mystery Element 2",
         "sourceColor": "rgb(255,255,255)",
         "sourceBorder": "rgb(251,173,99)",
         "sourceGlow": "rgb(255,54,10)",
         "lines": [668, 588, 502, 447]
     },
     "mercury": {
+        "name": "Mystery Element 3",
         "sourceColor": "rgb(255,252,252)",
         "sourceBorder": "rgb(5,216,255)",
         "sourceGlow": "rgb(104,175,221)",
