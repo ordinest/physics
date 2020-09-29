@@ -1,7 +1,29 @@
 import React from 'react'
+import { createUseStyles } from 'react-jss'
+
+// Create styles for toolbar components
+const useStyles = createUseStyles({
+    toolbarStyle: {
+        height: `2.5rem`,
+        padding: `2px`,
+        color: 'white',
+    },
+    itemStyle: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: '0.25rem',
+    },
+    labelStyle: {
+        fontWeight: 'bold',
+    },
+    selectStyle: {
+        background: 'black',
+        color: 'white',
+    }
+})
 
 /**
- * 
+ * Toolbar component for the Spectral Identification lab.
  * @param {Object} sources Object with entries for each source.
  * @param {Object} currentSource Object of the currently active source.
  * @param {Function} onChangeSource Callback when source selection changes.
@@ -22,28 +44,10 @@ const Toolbar = ({
     maxScreenDistance,
     onChangeScreenDistance,
 }) => {
-    const height = `2.5rem` // Height of the toolbar
-    const padding = `2px`   // Padding inside toolbar border
-
-    const itemStyle = {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: '0.25rem',
-    }
-    const labelStyle = {
-        fontWeight: 'bold',
-    }
-    const selectStyle = {
-        background: 'black',
-        color: 'white',
-    }
+    const classes = useStyles()
 
     return (
-        <div style={{
-            height: height,
-            padding: padding,
-            color: 'white',
-        }}>
+        <div className={classes.toolbarStyle}>
             <form onSubmit={e => e.preventDefault()} style={{
                 display: 'flex',
                 flexFlow: 'row wrap',
@@ -53,12 +57,12 @@ const Toolbar = ({
                 height: '100%',
                 width: '100%',
             }}>
-                <div style={itemStyle}>
-                    <label htmlFor='source' style={labelStyle}>
+                <div className={classes.itemStyle}>
+                    <label htmlFor='source' className={classes.labelStyle}>
                         <span>Source</span>
                     </label>
                     <select
-                        style={selectStyle}
+                        className={classes.selectStyle}
                         id='source'
                         defaultValue={currentSource}
                         onChange={e => onChangeSource(sources[e.target.value])}
@@ -70,12 +74,12 @@ const Toolbar = ({
                         ))}
                     </select>
                 </div>
-                <div style={itemStyle}>
-                    <label htmlFor='grating' style={labelStyle}>
+                <div className={classes.itemStyle}>
+                    <label htmlFor='grating' className={classes.labelStyle}>
                         <span>Grating</span>
                     </label>
                     <select
-                        style={selectStyle}
+                        className={classes.selectStyle}
                         id='grating'
                         defaultValue={currentGrating}
                         onChange={e => onChangeGrating(gratings[e.target.value])}
@@ -87,8 +91,8 @@ const Toolbar = ({
                         ))}
                     </select>
                 </div>
-                <div style={itemStyle}>
-                    <label htmlFor='distance' style={labelStyle}>
+                <div className={classes.itemStyle}>
+                    <label htmlFor='distance' className={classes.labelStyle}>
                         <span>Screen Distance ({currentScreenDistance} mm)</span>
                     </label>
                     <input
