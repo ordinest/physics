@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Toolbar from 'Components/Toolbar'
+import Workbench from 'Components/Workbench'
 import elements from 'Data/elements.json'
 import gratings from 'Data/gratings.json'
 
@@ -22,6 +23,13 @@ const SpectralLab = () => {
                 minScreenDistance={screenRange[0]}
                 maxScreenDistance={screenRange[1]}
                 onChangeScreenDistance={newDistance => setScreenDistance(newDistance)}
+            />
+            <Workbench
+                source={source}
+                grating={grating}
+                screenDistance={screenDistance}
+                minScreenDistance={screenRange[0]}
+                maxScreenDistance={screenRange[1]}
             />
         </div>
     )
