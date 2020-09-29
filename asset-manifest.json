@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/physics/static/css/main.3efa7240.chunk.css",
-    "main.js": "/physics/static/js/main.a5353871.chunk.js",
-    "main.js.map": "/physics/static/js/main.a5353871.chunk.js.map",
+    "main.js": "/physics/static/js/main.3c4503b1.chunk.js",
+    "main.js.map": "/physics/static/js/main.3c4503b1.chunk.js.map",
     "runtime-main.js": "/physics/static/js/runtime-main.04de2196.js",
     "runtime-main.js.map": "/physics/static/js/runtime-main.04de2196.js.map",
-    "static/js/2.307df87c.chunk.js": "/physics/static/js/2.307df87c.chunk.js",
-    "static/js/2.307df87c.chunk.js.map": "/physics/static/js/2.307df87c.chunk.js.map",
+    "static/js/2.8ccbbe62.chunk.js": "/physics/static/js/2.8ccbbe62.chunk.js",
+    "static/js/2.8ccbbe62.chunk.js.map": "/physics/static/js/2.8ccbbe62.chunk.js.map",
     "index.html": "/physics/index.html",
-    "precache-manifest.3253f799bf93d35295744e4226cde269.js": "/physics/precache-manifest.3253f799bf93d35295744e4226cde269.js",
+    "precache-manifest.623c52efcd5e3050491a6d2d2cd00a40.js": "/physics/precache-manifest.623c52efcd5e3050491a6d2d2cd00a40.js",
     "service-worker.js": "/physics/service-worker.js",
     "static/css/main.3efa7240.chunk.css.map": "/physics/static/css/main.3efa7240.chunk.css.map",
-    "static/js/2.307df87c.chunk.js.LICENSE.txt": "/physics/static/js/2.307df87c.chunk.js.LICENSE.txt"
+    "static/js/2.8ccbbe62.chunk.js.LICENSE.txt": "/physics/static/js/2.8ccbbe62.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.04de2196.js",
-    "static/js/2.307df87c.chunk.js",
+    "static/js/2.8ccbbe62.chunk.js",
     "static/css/main.3efa7240.chunk.css",
-    "static/js/main.a5353871.chunk.js"
+    "static/js/main.3c4503b1.chunk.js"
   ]
 }
