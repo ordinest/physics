@@ -1,10 +1,10 @@
 import React from 'react';
-import Workbench from 'Components/Workbench'
+import SpectralLab from 'Components/SpectralLab'
 
 const App = () => {
   return (
     <div>
-      <Workbench />
+      <SpectralLab />
     </div>
   )
 }
