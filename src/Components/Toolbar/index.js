@@ -1,27 +1,6 @@
 import React from 'react'
 import { createUseStyles } from 'react-jss'
 
-// Create styles for toolbar components
-const useStyles = createUseStyles({
-    toolbarStyle: {
-        height: `2.5rem`,
-        padding: `2px`,
-        color: 'white',
-    },
-    itemStyle: {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: '0.25rem',
-    },
-    labelStyle: {
-        fontWeight: 'bold',
-    },
-    selectStyle: {
-        background: 'black',
-        color: 'white',
-    }
-})
-
 /**
  * Toolbar component for the Spectral Identification lab.
  * @param {Object} sources Object with entries for each source.
@@ -34,23 +13,44 @@ const useStyles = createUseStyles({
  */
 const Toolbar = ({
     sources = {},
-    currentSource,
+    height = '2.5rem',
     onChangeSource,
     gratings = {},
-    currentGrating = null,
     onChangeGrating,
     currentScreenDistance,
     minScreenDistance,
     maxScreenDistance,
     onChangeScreenDistance,
 }) => {
+    // Create styles for toolbar components
+    const useStyles = createUseStyles({
+        toolbarStyle: {
+            height: `${height}`,
+            padding: `2px`,
+            color: 'white',
+            background: 'black',
+            zIndex: '100',
+        },
+        itemStyle: {
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '0.25rem',
+        },
+        labelStyle: {
+            fontWeight: 'bold',
+        },
+        selectStyle: {
+            background: 'black',
+            color: 'white',
+        }
+    })
     const classes = useStyles()
 
     return (
         <div className={classes.toolbarStyle}>
             <form onSubmit={e => e.preventDefault()} style={{
                 display: 'flex',
-                flexFlow: 'row wrap',
+                flexFlow: 'row',
                 gap: '2rem',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -64,8 +64,7 @@ const Toolbar = ({
                     <select
                         className={classes.selectStyle}
                         id='source'
-                        defaultValue={currentSource}
-                        onChange={e => onChangeSource(sources[e.target.value])}
+                        onChange={e => onChangeSource(sources[e.target.value])} 
                     >
                         {Object.keys(sources).map(source => (
                             <option value={source} key={source}>
@@ -81,7 +80,6 @@ const Toolbar = ({
                     <select
                         className={classes.selectStyle}
                         id='grating'
-                        defaultValue={currentGrating}
                         onChange={e => onChangeGrating(gratings[e.target.value])}
                     >
                         {Object.keys(gratings).map(grating => (

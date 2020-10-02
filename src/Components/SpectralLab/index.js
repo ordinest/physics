@@ -8,13 +8,14 @@ const SpectralLab = () => {
     const [source, setSource] = useState(elements.hydrogen)
     const [grating, setGrating] = useState(gratings[0])
     const [screenDistance, setScreenDistance] = useState(400)   // Represents millimeters
-    const screenRange = [300, 450]      // Min and max values for screen distance
+    const screenRange = [200, 450]      // Min and max values for screen distance
+    const toolbarHeight = '40'         // In pixels
 
     return (
         <div>
             <Toolbar
                 sources={elements}
-                currentSource={source}
+                height={`${toolbarHeight}px`}
                 onChangeSource={newSource => setSource(newSource)}
                 gratings={gratings}
                 currentGrating={grating}
@@ -26,6 +27,7 @@ const SpectralLab = () => {
             />
             <Workbench
                 source={source}
+                height={`${window.innerHeight - toolbarHeight - 16}`}
                 grating={grating}
                 screenDistance={screenDistance}
                 minScreenDistance={screenRange[0]}

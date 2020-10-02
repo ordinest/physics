@@ -19,5 +19,19 @@
         "sourceBorder": "rgb(5,216,255)",
         "sourceGlow": "rgb(104,175,221)",
         "lines": [577,546,436]
+    },
+    "sodium": {
+        "name": "Mystery Element C",
+        "sourceColor": "rgb(229,255,0)",
+        "sourceBorder": "rgb(299,255,0)",
+        "sourceGlow": "rgb(299,255,0)",
+        "lines": [588]
+    },
+    "carbon": {
+        "name": "Mystery Element D",
+        "sourceColor": "rgb(239,251,255)",
+        "sourceBorder": "rgb(69,125,166)",
+        "sourceGlow": "rgb(21,138,255)",
+        "lines": [392, 427, 514, 538, 590, 601, 658, 723 ]
     }
 }
