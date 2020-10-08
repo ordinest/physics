@@ -1,0 +1,58 @@
+{
+    "hydrogen": {
+        "name": "Hydrogen",
+        "sourceColor": "rgb(244,241,243)",
+        "sourceBorder": "rgb(255,53,137)",
+        "sourceGlow": "rgb(255,0,68)",
+        "lines": [656.3, 486.1, 434.0, 410.2]
+    },
+    "calcium": {
+        "name": "Calcium",
+        "sourceColor": "rgb(255,255,255)",
+        "sourceBorder": "rgb(251,173,99)",
+        "sourceGlow": "rgb(255,54,10)",
+        "lines": [430.8, 396.8, 393.4]
+    },
+    "mercury": {
+        "name": "Mercury",
+        "sourceColor": "rgb(255,252,252)",
+        "sourceBorder": "rgb(5,216,255)",
+        "sourceGlow": "rgb(104,175,221)",
+        "lines": [577.0,546.1,435.8]
+    },
+    "sodium": {
+        "name": "Sodium",
+        "sourceColor": "rgb(245,255,245)",
+        "sourceBorder": "rgb(299,255,0)",
+        "sourceGlow": "rgb(299,255,0)",
+        "lines": [589.3]
+    },
+    "mystery alpha": {
+        "name": "Mystery Alpha",
+        "sourceColor": "rgb(244,241,243)",
+        "sourceBorder": "rgb(255,53,137)",
+        "sourceGlow": "rgb(255,0,68)",
+        "lines": [656.3, 486.1, 434.0, 410.2]
+    },
+    "mystery beta": {
+        "name": "Mystery Beta",
+        "sourceColor": "rgb(255,252,252)",
+        "sourceBorder": "rgb(5,216,255)",
+        "sourceGlow": "rgb(104,175,221)",
+        "lines": [577.0,546.1,435.8]
+    },
+    "H,Ca": {
+        "name": "Mix 1",
+        "sourceColor": "rgb(253,248,248)",
+        "sourceBorder": "rgb(200,200,200)",
+        "sourceGlow": "rgb(242,100,80)",
+        "lines": [656.3, 486.1, 434.0, 410.2, 430.8, 396.8, 393.4]
+    },
+    "H,Mg": {
+        "name": "Mix 2",
+        "sourceColor": "rgb(253,248,248)",
+        "sourceBorder": "rgb(200,200,200)",
+        "sourceGlow": "rgb(242,100,80)",
+        "lines": [656.3, 486.1, 434.0, 410.2, 577.0,546.1,435.8]
+    }
+}

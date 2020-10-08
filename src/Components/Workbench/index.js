@@ -21,6 +21,7 @@ const Workbench = ({
         position: 'absolute',
         height: `${height}px`,
         width: '100%',
+        overflow: 'hidden',
     }
 
     return (

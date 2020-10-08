@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import Toolbar from 'Components/Toolbar'
 import Workbench from 'Components/Workbench'
-import elements from 'Data/elements.json'
+import sources from 'Data/sources.json'
 import gratings from 'Data/gratings.json'
 
 const SpectralLab = () => {
-    const [source, setSource] = useState(elements.hydrogen)
+    const [source, setSource] = useState(sources.hydrogen)
     const [grating, setGrating] = useState(gratings[0])
     const [screenDistance, setScreenDistance] = useState(400)   // Represents millimeters
-    const screenRange = [200, 450]      // Min and max values for screen distance
+    const screenRange = [200, 800]      // Min and max values for screen distance
     const toolbarHeight = '40'         // In pixels
 
     return (
         <div>
             <Toolbar
-                sources={elements}
+                sources={sources}
                 height={`${toolbarHeight}px`}
                 onChangeSource={newSource => setSource(newSource)}
                 gratings={gratings}

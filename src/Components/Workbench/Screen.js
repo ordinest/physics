@@ -29,7 +29,6 @@ const Screen = props => {
     }
 
     const SpectralLine = ({ color, height }) => {
-
         return (
             <div style={{
                 position: 'absolute',
@@ -51,7 +50,7 @@ const Screen = props => {
                 />
                 <div style={{
                     color: "white",
-                    fontSize: '0.825rem'
+                    fontSize: '0.825rem',
                 }}>{Math.round(height)}mm</div>
             </div>
         )
