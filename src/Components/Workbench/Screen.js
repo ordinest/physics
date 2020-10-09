@@ -51,7 +51,7 @@ const Screen = props => {
                 <div style={{
                     color: "white",
                     fontSize: '0.825rem',
-                }}>{Math.round(height)}mm</div>
+                }}>{Math.round(height * 10) / 10}mm</div>
             </div>
         )
     }
